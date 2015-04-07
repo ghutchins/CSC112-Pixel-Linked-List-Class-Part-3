@@ -1,0 +1,24 @@
+# Programmer: Georgina Hutchins						Course: CSC112 A
+# Assignment: 12							Date: 04/22/14
+
+CC = g++
+CFLAGS = -g -pg -Wall
+
+
+lab12: driver.o pixel.o pixellist1.o pixellist2.o pixellinklist.o
+	$(CC) $(CFLAGS) -o lab12 driver.o pixel.o pixellist1.o pixellist2.o pixellinklist.o
+driver.o: driver.cpp pixel.h pixellinklist.h pixellist.h
+	$(CC) $(CFLAGS) -c driver.cpp
+pixel.o: pixel.cpp pixel.h
+	$(CC) $(CFLAGS) -c pixel.cpp
+pixellist1.o: pixellist1.cpp pixellist.h pixel.h
+	$(CC) $(CFLAGS) -c pixellist1.cpp
+pixellist2.o: pixellist2.cpp pixellist.h pixel.h
+	$(CC) $(CFLAGS) -c pixellist2.cpp
+pixellinklist.o: pixellinklist.cpp pixellinklist.h pixel.h pixelnode.h
+	$(CC) $(FLAGS) -c pixellinklist.cpp
+clean:
+	\rm -f *.o lab12
+
+
+
